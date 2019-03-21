@@ -1,25 +1,25 @@
 package demo;
 
 public class Sort {
-
 	public static void main(String[] args) {
-		
-        int[] arr = {10,7,2,4,7,62,3,4,2,1,8,9,19};
-        quicksort(arr, 0, arr.length-1);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
-        dubblesort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
-		
+		 int[] arr = {10,7,2,4,7,62,3,4,2,1,8,9,19};
+		 System.out.println("快速排序");
+		 quicksort(arr, 0, arr.length-1);
+	     for (int i = 0; i < arr.length; i++) {
+	          System.out.println(arr[i]);
+	     }
+	     System.out.println("冒泡排序");   
+	     dubblesort(arr);
+	     for (int i = 0; i < arr.length; i++) {
+	          System.out.println(arr[i]);
+	     }
 	}
+
 	/**
 	 *  冒泡排序
 	 * @param number
 	 */
-	private static void dubblesort(int[] number) {
+	protected static void dubblesort(int[] number) {
 		int size=number.length;
 		int temp=0;
 		for(int i=0;i<size-1;i++){
@@ -37,7 +37,7 @@ public class Sort {
 	/**
 	 * 快速排序
 	 */
-	private static void quicksort(int[] number,int start,int end) {
+	protected static void quicksort(int[] number,int start,int end) {
 		int i,j,temp,t;
 		if(start>end){
 			return;
@@ -45,15 +45,16 @@ public class Sort {
 		i=start;
 		j=end;
 		temp=number[start];   //基准数
-		while(start<end){
+		while(i<j){
 			//满足条件就继续遍历
 			while(temp<=number[j]&&i<j){
 				j--;
 			}
 			//满足条件就继续遍历
-			while(temp>number[i]&&i<j){
+			while(temp>=number[i]&&i<j){
 				i++;
 			}
+			
 			//number[i]>temp 并且number[j]<temp 进行交换
 			if(i<j){
 				t=number[i];
